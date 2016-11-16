@@ -53,4 +53,10 @@ Rails.application.routes.draw do
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
+  resources :restaurants, only: [:index, :new, :create, :show] do
+    member do
+      resources :reviews, only: [:new, :create]
+    end
+  end
+
 end
